@@ -1,0 +1,67 @@
+package com.example.pcardoso.mymoviesproject.model;
+
+import android.support.annotation.NonNull;
+import android.support.v7.util.DiffUtil;
+
+import com.google.gson.annotations.SerializedName;
+
+public class Movie {
+    private long idMovie;
+    //title
+    @SerializedName("original_title")
+    private String originalTitle;
+
+    //desc
+    @SerializedName("poster_path")
+    private String imageMovie;
+
+    public Movie() {
+
+    }
+
+    public long getIdMovie() {
+        return idMovie;
+    }
+
+    public void setIdMovie(long idMovie) {
+        this.idMovie = idMovie;
+    }
+
+    public Movie(long idMovie, String originalTitle, String imageMovie) {
+        this.idMovie = idMovie;
+        this.originalTitle = originalTitle;
+        this.imageMovie = imageMovie;
+    }
+
+
+    public String getOriginalTitle() {
+        return originalTitle;
+    }
+
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
+    }
+
+    public String getImageMovie() {
+        return imageMovie;
+    }
+
+    public void setImageMovie(String imageMovie) {
+        this.imageMovie = imageMovie;
+    }
+
+    public static final DiffUtil.ItemCallback<Movie> DIFF_CALLBACK =
+            new DiffUtil.ItemCallback<Movie>() {
+                @Override
+                public boolean areItemsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
+                    return oldItem.idMovie == newItem.idMovie;
+                }
+
+                @Override
+                public boolean areContentsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
+                    return oldItem.getImageMovie().equals(oldItem.getImageMovie())
+
+                            && oldItem.getOriginalTitle().equals(newItem.getOriginalTitle());
+                }
+            };
+}
