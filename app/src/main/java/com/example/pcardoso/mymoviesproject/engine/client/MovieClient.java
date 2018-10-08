@@ -17,7 +17,12 @@ public interface MovieClient {
     //annotion
     @GET("movie/popular")
     //RETORNO LISTMOVIES
-    Call<Pagination<Movie>> listMovies(@Query("api_key") String apiKey);
+    //assinatura do metodo
+    Call<Pagination<Movie>> listMovies(@Query("api_key") String apiKey, @Query("page") int page);
+
+    //int dosomthing();
+
+
 }
 
 

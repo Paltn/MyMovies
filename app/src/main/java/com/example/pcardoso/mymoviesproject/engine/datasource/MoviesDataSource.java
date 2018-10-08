@@ -4,6 +4,7 @@ import android.arch.paging.PageKeyedDataSource;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.example.pcardoso.mymoviesproject.BaseConstants;
 import com.example.pcardoso.mymoviesproject.engine.implementation.MovieImplementation;
 import com.example.pcardoso.mymoviesproject.model.Movie;
 
@@ -29,6 +30,8 @@ public class MoviesDataSource extends PageKeyedDataSource<Integer, Movie> {
 
     @Override
     public void loadAfter(@NonNull LoadParams<Integer> params, @NonNull LoadCallback<Integer, Movie> callback) {
+
+    movieImplementation.listAfter(params.key, callback);
 
     }
 }

@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.paging.LivePagedListBuilder;
 import android.arch.paging.PagedList;
 
+import com.bumptech.glide.Glide;
 import com.example.pcardoso.mymoviesproject.engine.datasource.DataSourceFactory;
 import com.example.pcardoso.mymoviesproject.engine.datasource.MoviesDataSource;
 import com.example.pcardoso.mymoviesproject.model.Movie;
@@ -18,7 +19,6 @@ public class ListMoviesViewModel extends ViewModel {
         //   leaguePagedList = new LivePagedListBuilder<>(dataSourceFactory, DataSourceUtil.setPagedListConfig(3))
         //                .build();
 
-
         PagedList.Config config =  new PagedList.Config.Builder()
                 .setEnablePlaceholders(false)
                 .setPageSize(21)
@@ -28,5 +28,6 @@ public class ListMoviesViewModel extends ViewModel {
         movies = new LivePagedListBuilder<>(dataSourceFactory,  config)
             .build();
          }
+
 
 }

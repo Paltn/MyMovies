@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+
+
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-
-<android.support.constraint.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recy_movie"
+    <FrameLayout
+        android:id="@+id/fragment_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/listmovies"
-        />
+        android:layout_height="match_parent">
+    </FrameLayout>
 
-</android.support.constraint.ConstraintLayout>
 
-</layout>
+</LinearLayout>
+
