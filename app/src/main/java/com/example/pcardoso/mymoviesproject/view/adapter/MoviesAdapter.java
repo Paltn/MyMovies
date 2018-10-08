@@ -52,7 +52,8 @@ public class MoviesAdapter extends PagedListAdapter<Movie, MoviesAdapter.ViewHol
             @Override
             public void onClick(View v) {
 
-                // System.out.println("AAA"+ viewHolder.binding.getMovie().getIdMovie() +viewHolder.binding.getMovie().getOriginalTitle());
+
+                System.out.println("AAA"+ viewHolder.binding.getMovie().getIdMovie() +viewHolder.binding.getMovie().getOriginalTitle());
 
                 Toast.makeText(v.getContext(), "ID MOVIE : " + viewHolder.binding.getMovie().getIdMovie()
                         + " | TITLE MOVIE : " + viewHolder.binding.getMovie().getOriginalTitle(), Toast.LENGTH_LONG).show();
