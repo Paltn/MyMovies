@@ -7,7 +7,8 @@ import android.support.v7.util.DiffUtil;
 import com.google.gson.annotations.SerializedName;
 
 public class Movie {
-    private long idMovie;
+    private int id;
+
     //title
     @SerializedName("original_title")
     private String originalTitle;
@@ -23,16 +24,16 @@ public class Movie {
 
     }
 
-    public long getIdMovie() {
-        return idMovie;
+    public int getIdMovie() {
+        return id;
     }
 
-    public void setIdMovie(long idMovie) {
-        this.idMovie = idMovie;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Movie(long idMovie, String originalTitle, String imageMovie, String overview, double popularity) {
-        this.idMovie = idMovie;
+    public Movie(int id, String originalTitle, String imageMovie, String overview, double popularity) {
+        this.id = id;
         this.originalTitle = originalTitle;
         this.imageMovie = imageMovie;
         this.overview = overview;
@@ -76,12 +77,13 @@ public class Movie {
             new DiffUtil.ItemCallback<Movie>() {
                 @Override
                 public boolean areItemsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
-                    return oldItem.idMovie == newItem.idMovie;
+                    return oldItem.id == newItem.id;
                 }
                 @Override
                 public boolean areContentsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
                     return oldItem.getImageMovie().equals(oldItem.getImageMovie())
                             && oldItem.getOriginalTitle().equals(newItem.getOriginalTitle());
+
                 }
             };
 }

@@ -41,12 +41,13 @@ public class ListMoviesFragment extends Fragment {
         // Required empty public constructor
     }
 
+    private final MovieClickCallback leagueClickCallback = movie -> activityCallback.onMovieSelected(movie);
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_movies, container, false);
         viewModel = ViewModelProviders.of(this).get(ListMoviesViewModel.class);
-
+        recycle();
         adapter = new MoviesAdapter(movieClickCallback);
 
         viewModel.movies.observe(this, new Observer<PagedList<Movie>>() {
@@ -57,7 +58,6 @@ public class ListMoviesFragment extends Fragment {
         });
 
         binding.recyMovie.setAdapter(adapter);
-        recycle();
 
         return binding.getRoot();
     }
@@ -68,6 +68,7 @@ public class ListMoviesFragment extends Fragment {
         // gridLayoutManager.setStackFromEnd(false);
         binding.recyMovie.setLayoutManager(gridLayoutManager);
     }
+
 
 
 }

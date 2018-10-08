@@ -36,18 +36,19 @@ public class MovieImplementation implements MovieController {
 
         MovieClient service = retrofit.create(MovieClient.class);
 
-
         service.listMovies(apiKey, page).enqueue(new Callback<Pagination<Movie>>() {
             @Override
             public void onResponse(Call<Pagination<Movie>> call, Response<Pagination<Movie>> response) {
                 callback.onResult(response.body().getResults(), null, page + 1);
 
                 Log.d("Movie", "My response: " + response);
+
             }
 
             @Override
             public void onFailure(Call<Pagination<Movie>> call, Throwable t) {
                 Log.d("Movie", "My responseFA: " + t.getMessage());
+
             }
         });
     }
@@ -74,6 +75,7 @@ public class MovieImplementation implements MovieController {
                     callback.onResult(response.body().getResults(), nextPage);
                 }
             }
+
             @Override
             public void onFailure(Call<Pagination<Movie>> call, Throwable t) {
             }
