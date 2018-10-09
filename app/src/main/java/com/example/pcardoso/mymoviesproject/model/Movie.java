@@ -8,20 +8,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Movie {
     private int id;
-
     //title
     @SerializedName("original_title")
     private String originalTitle;
-
     //desc
     @SerializedName("poster_path")
     private String imageMovie;
-
     private String overview;
     private double popularity;
 
     public Movie() {
-
     }
 
     public int getIdMovie() {
@@ -77,13 +73,21 @@ public class Movie {
             new DiffUtil.ItemCallback<Movie>() {
                 @Override
                 public boolean areItemsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
+
                     return oldItem.id == newItem.id;
-                }
-                @Override
-                public boolean areContentsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
-                    return oldItem.getImageMovie().equals(oldItem.getImageMovie())
-                            && oldItem.getOriginalTitle().equals(newItem.getOriginalTitle());
 
                 }
+
+                @Override
+                public boolean areContentsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
+
+                    return oldItem.getImageMovie().equals(newItem.getImageMovie())
+
+                            && oldItem.getOriginalTitle().equals(newItem.getOriginalTitle());
+
+
+                }
+
             };
+
 }
