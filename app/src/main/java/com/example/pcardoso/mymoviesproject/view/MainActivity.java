@@ -31,12 +31,20 @@ public class MainActivity extends AppCompatActivity   {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_main, new ListMoviesFragment());
-        fragmentTransaction.commit();
+        if(savedInstanceState==null){
+
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+            fragmentTransaction.add(R.id.fragment_main, new ListMoviesFragment());
+
+            fragmentTransaction.commit();
+        }
+
+
     }
 
 }
