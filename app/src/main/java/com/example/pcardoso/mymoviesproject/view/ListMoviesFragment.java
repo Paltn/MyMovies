@@ -10,6 +10,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +45,7 @@ public class ListMoviesFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private final MovieClickCallback leagueClickCallback = movie -> activityCallback.onMovieSelected(movie);
+    //private final MovieClickCallback movieClickCallback = movie -> activityCallback.onMovieSelected(movie);
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -56,19 +60,24 @@ public class ListMoviesFragment extends Fragment {
                 adapter.submitList(movies);
             }
         });
-
         binding.recyMovie.setAdapter(adapter);
-
         return binding.getRoot();
     }
 
     public void recycle() {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float density  = getResources().getDisplayMetrics().density;
+        float dpWidth  = outMetrics.widthPixels / density;
+        int columns = Math.round(dpWidth/100);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), columns);
         gridLayoutManager.setReverseLayout(false);
-        // gridLayoutManager.setStackFromEnd(false);
+       // gridLayoutManager.setStackFromEnd(false);
         binding.recyMovie.setLayoutManager(gridLayoutManager);
     }
-
-
 
 }
