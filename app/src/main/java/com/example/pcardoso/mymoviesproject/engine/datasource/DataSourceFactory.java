@@ -5,9 +5,11 @@ import android.arch.paging.DataSource;
 
 public class DataSourceFactory<T> extends DataSource.Factory<Integer, T> {
 
-
     private T type;
 
+    public MutableLiveData<T> getLiveDataSource() {
+        return liveDataSource;
+    }
     private MutableLiveData<T> liveDataSource;
 
     public DataSourceFactory(T type) {

@@ -17,6 +17,7 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.pcardoso.mymoviesproject.R;
 import com.example.pcardoso.mymoviesproject.databinding.FragmentListMoviesBinding;
@@ -58,6 +59,13 @@ public class ListMoviesFragment extends Fragment {
             @Override
             public void onChanged(@Nullable PagedList<Movie> movies) {
                 adapter.submitList(movies);
+            }
+        });
+
+        viewModel.noInternet.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                Toast.makeText(getActivity(), "No connection, please check your network.", Toast.LENGTH_SHORT).show();
             }
         });
         binding.recyMovie.setAdapter(adapter);

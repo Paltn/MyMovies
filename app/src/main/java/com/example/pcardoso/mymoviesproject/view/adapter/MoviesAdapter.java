@@ -23,12 +23,13 @@ import com.example.pcardoso.mymoviesproject.view.callback.MovieClickCallback;
 
 
 public class MoviesAdapter extends PagedListAdapter<Movie, MoviesAdapter.ViewHolder> {
-    @Nullable
-    private final MovieClickCallback movieClickCallback;
+    //@Nullable
+    //private final MovieClickCallback movieClickCallback;
 
     public MoviesAdapter(@Nullable MovieClickCallback movieClickCallback) {
         super(Movie.DIFF_CALLBACK);
-        this.movieClickCallback = movieClickCallback;
+
+       // this.movieClickCallback = movieClickCallback;
     }
 
     @NonNull
@@ -46,24 +47,26 @@ public class MoviesAdapter extends PagedListAdapter<Movie, MoviesAdapter.ViewHol
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         viewHolder.binding.setMovie(getItem(i));
+
         viewHolder.binding.executePendingBindings();
 
         viewHolder.binding.imgmovie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-                System.out.println("AAA"+ viewHolder.binding.getMovie().getIdMovie() +viewHolder.binding.getMovie().getOriginalTitle());
+                //System.out.println("AAA"+ viewHolder.binding.getMovie().getIdMovie() +viewHolder.binding.getMovie().getOriginalTitle());
 
                 Toast.makeText(v.getContext(), "ID MOVIE : " + viewHolder.binding.getMovie().getIdMovie()
                         + " | TITLE MOVIE : " + viewHolder.binding.getMovie().getOriginalTitle(), Toast.LENGTH_LONG).show();
             }
         });
+        //getItemCount();
 
         // movieClickCallback.onClick(getItem(i));
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+     class ViewHolder extends RecyclerView.ViewHolder {
+
         final ListmoviesBinding binding;
 
         public ViewHolder(ListmoviesBinding binding) {
@@ -72,4 +75,4 @@ public class MoviesAdapter extends PagedListAdapter<Movie, MoviesAdapter.ViewHol
         }
     }
 
-}
+    }
