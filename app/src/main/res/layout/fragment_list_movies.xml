@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
     <data>
         <variable
             name="movie"
-            type="com.example.pcardoso.mymoviesproject.model.Movie"/>
+            type="com.example.pcardoso.mymoviesproject.model.Movie" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -17,9 +15,7 @@
             android:id="@+id/recy_movie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/listmovies"
-            />
-
-    </android.support.constraint.ConstraintLayout>
+            tools:listitem="@layout/listmovies" />
+    </LinearLayout>
 
 </layout>

@@ -14,5 +14,5 @@ import retrofit2.Call;
 public interface MovieController {
     void list(int page, PageKeyedDataSource.LoadInitialCallback<Integer, Movie> callback);
     void listAfter(int page, PageKeyedDataSource.LoadCallback<Integer, Movie> callback);
-    //void deleteMovie();
+    void tesConn(PageKeyedDataSource.LoadCallback callback);
 }

@@ -5,8 +5,11 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.arch.paging.PagedList;
+import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +18,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.pcardoso.mymoviesproject.R;
@@ -26,7 +30,7 @@ import com.example.pcardoso.mymoviesproject.viewmodel.ListMoviesViewModel;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity   {
+public class MainActivity extends AppCompatActivity {
 
 
     @Override
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity   {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(savedInstanceState==null){
+        if (savedInstanceState == null) {
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
@@ -43,8 +47,9 @@ public class MainActivity extends AppCompatActivity   {
 
             fragmentTransaction.commit();
         }
-
+      //  isOnline();
 
     }
+
 
 }

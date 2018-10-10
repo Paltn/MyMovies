@@ -75,17 +75,13 @@ public class Movie {
                 public boolean areItemsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
 
                     return oldItem.id == newItem.id;
-
                 }
-
                 @Override
                 public boolean areContentsTheSame(@NonNull Movie oldItem, @NonNull Movie newItem) {
 
                     return oldItem.getImageMovie().equals(newItem.getImageMovie())
 
                             && oldItem.getOriginalTitle().equals(newItem.getOriginalTitle());
-
-
                 }
 
             };
